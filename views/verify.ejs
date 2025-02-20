@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify User</title>
+    <style>
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;}
+        #verifyForm{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height:auto;
+            width:auto;
+            border:solid rgb(221, 221, 221) 1px;
+            border-radius: 15px;
+            padding: 5%;
+        }
+        #invalidPass{ display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height:max-content;
+            width:max-content;
+            border:solid rgb(219, 67, 67) 1px;
+            border-radius: 15px;
+            padding: 5%;}
+        #invalidText{
+            opacity: 70%;
+            margin:5%
+        }
+
+    </style>
+</head>
+<body>
+    <% if(status==1){%>
+   <div id="verifyForm"> <h1>Verify Credentials</h1>
+    <form method="POST" action="/insta/<%=opt%>user/<%=id%>?_method=<%=opt%>">
+        <div><h4>Enter Password :</h4><input type="password" id="checkpass" name="password">
+        <input id="submit" type="submit" value="verify"></div>
+     </form>
+    </div>
+<%} else{%>
+
+<form method="GET" action="/insta">
+    <div id="invalidPass">
+        <div><h2>Incorrect Password!</h2></div>
+        <div id="invalidText"><span>The password you entered is incorrect,</span>
+            <span> please try again.</span></div>
+        <div><input type="submit" value="OK"></div>
+    </div>
+</form>
+<%}%>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSTA</title>
+    <style>
+        .user{
+            display:flex;
+            justify-content: space-around;
+            flex-direction: row;
+        }
+        #table{
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body> 
+    <span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/900px-Instagram_icon.png" width="70px">
+    <h2>Hello, Insta Users !</h2></span>
+   <hr>
+    <h3><%=count%> online now !</h3> 
+    <hr>
+    <table align="center" border="1" cellspacing="0" cellpadding="30" id="table">
+        <tr>
+            <!-- <th><h2>Id</h2></th> -->
+            <th style="border-top-left-radius: 20px;"><h2>Username</h2></th>
+            <th ><h2>Email</h2></th>
+            <th colspan=2 style="border-top-right-radius: 20px;"><h2>Options</h2></th>
+        </tr>
+        <% for(user of result){%>
+        <!-- <tr><td><%=user.id%></div></td> -->
+        <td><%=user.username%></td>
+        <td><%=user.email%></td>
+        <td>
+            <form method="POST" action="/insta/verify/<%=user.id%>">
+            <input type="hidden" name="opt" value="PATCH">
+             <input type="submit" value="Edit">
+            </form>
+        </td>
+        <td>
+            <form method="POST" action="/insta/verify/<%=user.id%>"> 
+                <input type="hidden" name="opt" value="DELETE">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+        </tr>
+    <%}%>
+   <tr><th colspan="5" style="border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;" >
+    <a href="http://localhost:3000/insta/new" >
+       <h2> Add User</h2>
+    </a>
+    </th>
+    </tr>
+    </table> <!-- use http instead of https -->  <br><br>
+
+</body>
+</html>
