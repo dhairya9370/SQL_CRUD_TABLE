@@ -4,17 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add User</title>
+    <style>
+            body{ display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;}
+            #editdiv{
+                display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height:auto;
+            width:max-content;
+            border:solid rgb(221, 221, 221) 1px;
+            border-radius: 15px;
+            padding: 10%;
+            }
+
+    </style>
 </head>
 <body>
-    <h2>Add New User</h2>
+    
     <form method="POST" action="/insta">
-        <label for="username">Username : </label>
-        <input type="text" name="username" placeholder="instauser@001"><br><br>
-        <label for="email">Email id : </label>
-        <input type="email" name="email" placeholder="instauser123@gmail.com"><br><br>
-        <label for="pass">Password</label>
-        <input type="password" name="pass"><br><br>
+    <div id="editdiv">
+        <h2>Add New User</h2>
+        <div><label for="username">Username : </label>
+        <input type="text" name="username" placeholder="instauser@001"></div><br><br>
+        <div><label for="email">Email id : </label>
+        <input type="email" name="email" placeholder="instauser123@gmail.com"></div><br><br>
+        <div><label for="pass">Password</label>
+        <input type="password" name="pass"></div><br><br>
         <input type="submit" value="Submit">
+    </div>
     </form>
 </body>
 </html>
